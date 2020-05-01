@@ -6,7 +6,7 @@ This repo is our summary and playground for MRC.  More features are coming.
 
 In this work, MRC model is regarded as two-stage Encoder-Decoder architecture. Our main attempts are shared in this repo. 
 
-![](figures\overview.png)
+![](figures/overview.png)
 
 ### Decoder:
 
