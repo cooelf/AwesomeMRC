@@ -14,7 +14,7 @@ The implementation is based on [Transformers](https://github.com/huggingface/tra
 
 #### Answer Verification
 
-**1）Multitask-style verification**
+**Multitask-style verification**
 
 We evaluate different loss functions 
 
@@ -45,6 +45,22 @@ Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
 2) train an intensive reader (`sh_albert_av.sh`)
 
 3) rear verification: merge the prediction for final answer (`run_verifier.py`)
+
+SQuAD 2.0 Dev Results:	
+
+```
+{
+"exact": 87.75372694348522, 
+"f1": 90.91630165754992, 
+"total": 11873, 
+"HasAns_exact": 83.1140350877193, 
+"HasAns_f1": 89.4482539777485, 
+"HasAns_total": 5928, 
+"NoAns_exact": 92.38015138772077, 
+"NoAns_f1": 92.38015138772077, 
+"NoAns_total": 5945
+}
+```
 
 ### Citation
 
