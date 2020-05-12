@@ -1853,7 +1853,7 @@ class BertForQuestionAnsweringSeqTrm(BertPreTrainedModel):
         query_sequence_output, context_sequence_output, query_attention_mask, context_attention_mask = \
             split_ques_context(sequence_output, pq_end_pos)
 
-        sequence_output = self.albert_att(context_sequence_output, sequence_output, context_attention_mask) #这里context_sequence_output是question（第一个序列）
+        sequence_output = self.albert_att(query_sequence_output, sequence_output, query_attention_mask)
 
         sequence_output = sequence_output + outputs[0]
 
@@ -1906,7 +1906,7 @@ class BertForQuestionAnsweringSeqSC(BertPreTrainedModel):
 
         query_sequence_output, context_sequence_output, query_attention_mask, context_attention_mask = \
             split_ques_context(sequence_output, pq_end_pos)
-        sequence_output = self.attention(sequence_output, context_sequence_output, context_attention_mask) #这里context_sequence_output是question（第一个序列）
+        sequence_output = self.attention(sequence_output, query_sequence_output, query_attention_mask)
 
         sequence_output = sequence_output + outputs[0]
 
