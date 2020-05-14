@@ -101,7 +101,7 @@ As part of the techniques in our Retro-Reader paper:
       ```
 
 ### Question Classification
-   [One-shot Learning for Question-Answering in Gaokao History Challenge](https://www.aclweb.org/anthology/C18-1038/)
+   [One-shot Learning for Question-Answering in Gaokao History Challenge (COLING 2018)](https://www.aclweb.org/anthology/C18-1038/)
 
 ### Citation
 
