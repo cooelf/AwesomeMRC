@@ -1,4 +1,5 @@
 #sketchy module
+export DATA_DIR=data
 export TASK_NAME=squad
 python ./examples/run_cls.py \
     --model_type albert \
@@ -7,7 +8,7 @@ python ./examples/run_cls.py \
     --do_train \
     --do_eval \
     --do_lower_case \
-    --data_dir DATA_DIR \
+    --data_dir $DATA_DIR \
     --max_seq_length 512 \
     --per_gpu_train_batch_size=6   \
     --per_gpu_eval_batch_size=8   \

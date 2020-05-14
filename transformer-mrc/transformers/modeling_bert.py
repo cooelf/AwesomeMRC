@@ -1767,18 +1767,18 @@ def split_ques_context( sequence_output, pq_end_pos):
     context_attention_mask = sequence_output.new_zeros((sequence_output.size(0), context_max_len))
     ques_attention_mask = sequence_output.new_zeros((sequence_output.size(0), ques_max_len))
     for i in range(0, sequence_output.size(0)):
-        p_end = pq_end_pos[i][0]
-        q_end = pq_end_pos[i][1]
-        ques_sequence_output[i, :min(ques_max_len, p_end)] = sequence_output[i,
-                                                                   1: 1 + min(ques_max_len, p_end)]
-        context_sequence_output[i, :min(context_max_len, q_end - p_end - sep_tok_len)] = sequence_output[i,
-                                                                                     p_end + sep_tok_len + 1: p_end + sep_tok_len + 1 + min(
-                                                                                         q_end - p_end - sep_tok_len,
+        q_end = pq_end_pos[i][0]
+        p_end = pq_end_pos[i][1]
+        ques_sequence_output[i, :min(ques_max_len, q_end)] = sequence_output[i,
+                                                                   1: 1 + min(ques_max_len, q_end)]
+        context_sequence_output[i, :min(context_max_len, p_end - q_end - sep_tok_len)] = sequence_output[i,
+                                                                                     q_end + sep_tok_len + 1: q_end + sep_tok_len + 1 + min(
+                                                                                         p_end - q_end - sep_tok_len,
                                                                                          context_max_len)]
-        context_attention_mask[i, :min(context_max_len, q_end - p_end - sep_tok_len)] = sequence_output.new_ones(
-            (1, context_max_len))[0, :min(context_max_len, q_end - p_end - sep_tok_len)]
-        ques_attention_mask[i, : min(ques_max_len, p_end)] = sequence_output.new_ones((1, ques_max_len))[0,
-                                                                   : min(ques_max_len, p_end)]
+        context_attention_mask[i, :min(context_max_len, p_end - q_end - sep_tok_len)] = sequence_output.new_ones(
+            (1, context_max_len))[0, :min(context_max_len, p_end - q_end - sep_tok_len)]
+        ques_attention_mask[i, : min(ques_max_len, q_end)] = sequence_output.new_ones((1, ques_max_len))[0,
+                                                                   : min(ques_max_len, q_end)]
     return ques_sequence_output, context_sequence_output, ques_attention_mask, context_attention_mask
 
 def masked_softmax(vector: torch.Tensor,

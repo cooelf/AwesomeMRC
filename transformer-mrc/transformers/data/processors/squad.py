@@ -81,7 +81,7 @@ def _is_whitespace(c):
 
 
 def squad_convert_examples_to_features(
-    examples, tokenizer, max_seq_length, doc_stride, max_query_length, is_training, return_dataset=False, regression=False, pq_end=False,sl=False,
+    examples, tokenizer, max_seq_length, doc_stride, max_query_length, is_training, return_dataset=False, regression=False, pq_end=False,
 ):
     """
     Converts a list of examples into a list of features that can be directly given as input to a model.
@@ -270,22 +270,8 @@ def squad_convert_examples_to_features(
 
             question_end_index = span["truncated_query_with_special_tokens_length"] - 1 #8
             doc_end_index = question_end_index + span["paragraph_len"]
-            #pq_end_pos = [question_end_index,doc_end_index] #hack here, q and p are written reversely to keep consistent with the modeling
-            if sl:
-                pad_token_label_id = CrossEntropyLoss().ignore_index
-                real_token_len = sum(span["attention_mask"])
-                #tag_set = ["O", "B", "I"]
-                padding_length = len(span["input_ids"]) - real_token_len
-                #print(real_token_len, padding_length, len(span["input_ids"]))
-                tag_seq = [0] * real_token_len + ([pad_token_label_id] * padding_length)
-                hastag = False
-                if start_position != 0 and end_position != 0 and start_position != cls_index and end_position != cls_index:
-                    tag_seq[start_position] = 1
-                    tag_seq[start_position+1:end_position+1] = [2]*(end_position-start_position)
-                    hastag = True
-                if is_training:
-                    assert hastag == (not span_is_impossible)
-
+            pq_end_pos = [question_end_index,doc_end_index]
+            if pq_end:
                 features.append(
                     SquadFeatures(
                         span["input_ids"],
@@ -302,7 +288,7 @@ def squad_convert_examples_to_features(
                         start_position=start_position,
                         end_position=end_position,
                         is_impossible=span_is_impossible,
-                        tag_seq=tag_seq
+                        pq_end_pos=pq_end_pos
                     )
                 )
             else:
@@ -343,10 +329,10 @@ def squad_convert_examples_to_features(
                 all_is_impossibles = torch.tensor([int(f.is_impossible) for f in features], dtype=torch.float)
             else:
                 all_is_impossibles = torch.tensor([int(f.is_impossible) for f in features], dtype=torch.long)
-            if sl:
-                all_tag_seq = torch.tensor([f.tag_seq for f in features], dtype=torch.long)
+            if pq_end:
+                all_pq_end_pos = torch.tensor([f.pq_end_pos for f in features], dtype=torch.long)
                 dataset = TensorDataset(
-                    all_input_ids, all_attention_masks, all_token_type_ids, all_example_index, all_is_impossibles, all_tag_seq, all_cls_index, all_p_mask
+                    all_input_ids, all_attention_masks, all_token_type_ids, all_example_index, all_is_impossibles, all_pq_end_pos, all_cls_index, all_p_mask
                 )
             else:
                 dataset = TensorDataset(
@@ -360,8 +346,8 @@ def squad_convert_examples_to_features(
             else:
                 all_is_impossibles = torch.tensor([int(f.is_impossible) for f in features], dtype=torch.long)
                 print(sum(all_is_impossibles == 1), sum(all_is_impossibles == 0))
-            if sl:
-                all_tag_seq = torch.tensor([f.tag_seq for f in features], dtype=torch.long)
+            if pq_end:
+                all_pq_end_pos = torch.tensor([f.pq_end_pos for f in features], dtype=torch.long)
                 dataset = TensorDataset(
                     all_input_ids,
                     all_attention_masks,
@@ -369,7 +355,7 @@ def squad_convert_examples_to_features(
                     all_start_positions,
                     all_end_positions,
                     all_is_impossibles,
-                    all_tag_seq,
+                    all_pq_end_pos,
                     all_cls_index,
                     all_p_mask,
                 )
@@ -541,9 +527,9 @@ class SquadProcessor(DataProcessor):
         examples = []
         for entry in tqdm(input_data):
             title = entry["title"]
-            for paragraph in entry["paragraphs"]:
+            for paragraph in entry["paragraphs"][:1]:
                 context_text = paragraph["context"]
-                for qa in paragraph["qas"]:
+                for qa in paragraph["qas"][:1]:
                     qas_id = qa["id"]
                     question_text = qa["question"]
                     start_position_character = None

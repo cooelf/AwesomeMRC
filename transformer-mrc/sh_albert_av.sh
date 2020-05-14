@@ -1,5 +1,5 @@
 #intensive module
-export SQUAD_DIR=/share03/zhangzs/pytorch-transformers-master/data/
+export SQUAD_DIR=data/
 python ./examples/run_squad_av.py \
     --model_type albert \
     --model_name_or_path albert-xxlarge-v2 \

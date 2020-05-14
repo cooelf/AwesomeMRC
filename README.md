@@ -2,15 +2,47 @@
 
 *working in progress
 
-This repo is our summary and playground for MRC.  More features are coming.
+This repo is our research summary and playground for MRC.  More features are coming.
 
-In this work, MRC model is regarded as two-stage Encoder-Decoder architecture. Our main attempts are shared in this repo. 
+## Summary
+
+Looking for a comprehensive and comparative review on MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (2020).
+
+In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture. Our empirical analysis is shared in this repo. 
 
 ![](figures/overview.png)
+
+### Encoder:
+
+1) Language Units
+
+[Subword-augmented Embedding for Cloze Reading Comprehension](https://www.aclweb.org/anthology/C18-1153/)
+
+[Effective Subword Segmentation for Text Comprehension](https://arxiv.org/abs/1811.02364)
+
+2) Linguistic Knowledge
+
+[Semantics-aware BERT for language understanding](https://arxiv.org/abs/1909.02209)
+
+[SG-Net: Syntax-Guided Machine Reading Comprehension](https://arxiv.org/abs/1908.05147)
+
+[LIMIT-BERT : Linguistic Informed Multi-Task BERT](https://arxiv.org/pdf/1910.14296.pdf)
+
+3） Commonsense Injection
+
+[Multi-choice Dialogue-Based Reading Comprehension with Knowledge and Key Turns](https://arxiv.org/abs/2004.13988)
+
+4) Contextualized language models (CLMs) for MRC:
+
+![](figures/clm_examples.png)
 
 ### Decoder:
 
 The implementation is based on [Transformers](https://github.com/huggingface/transformers) v2.3.0. 
+
+As part of the techniques in our Retro-Reader paper:
+
+[Retrospective Reader for Machine Reading Comprehension](https://arxiv.org/abs/2001.09694)
 
 #### Answer Verification
 
@@ -28,11 +60,21 @@ We evaluate different loss functions
 
 Train an external verifier (`run_cls.py`)
 
-#### Matching Attention
+#### Matching Network
 
 *Cross Attention* (`run_squad_seq_trm.py`)
 
 *Matching Attention* (`run_squad_seq_sc.py`)
+
+<u>Related Work</u>:
+
+[Modeling Multi-turn Conversation with Deep Utterance Aggregation](https://www.aclweb.org/anthology/C18-1317/)
+
+[DCMN+: Dual Co-Matching Network for Multi-choice Reading Comprehension](https://arxiv.org/pdf/1908.11511.pdf)
+
+[Dual Multi-head Co-attention for Multi-choice Reading Comprehension](https://arxiv.org/abs/2001.09415)
+
+[Semantics-Aware Inferential Network for Natural Language Understanding](https://arxiv.org/abs/2004.13338)
 
 #### Answer Dependency
 
@@ -72,6 +114,18 @@ SQuAD 2.0 Dev Results:
   year={2020}
 }
 ```
+### Related Records (best)
+
+[CMRC 2017](https://hfl-rc.github.io/cmrc2017/leaderboard/): The **best** single model (2017).
+
+[SQuAD 2.0](https://rajpurkar.github.io/SQuAD-explorer/): The **best** among all submissions (both single and ensemble settings) & The **first** to surpass human benchmark on both EM and F1 scores with a single model (2019).
+
+[SNLI](https://nlp.stanford.edu/projects/snli/): The **best** among all submissions (2019-2020).
+
+[RACE](http://www.qizhexie.com/data/RACE_leaderboard.html): The **best** among all submissions (2019).
+
+[GLUE](https://gluebenchmark.com/): The **3rd best** among all submissions (early 2019).
+
 ### Contact
 
 Feel free to email zhangzs [at] sjtu.edu.cn if you have any questions.
