@@ -12,7 +12,7 @@ In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture.
 
 ![](figures/overview.png)
 
-### Encoder:
+## Encoder:
 
 1) Language Units
 
@@ -28,7 +28,7 @@ In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture.
 
 [LIMIT-BERT : Linguistic Informed Multi-Task BERT](https://arxiv.org/pdf/1910.14296.pdf)
 
-3） Commonsense Injection
+3) Commonsense Injection
 
 [Multi-choice Dialogue-Based Reading Comprehension with Knowledge and Key Turns](https://arxiv.org/abs/2004.13988)
 
@@ -44,9 +44,9 @@ As part of the techniques in our Retro-Reader paper:
 
 [Retrospective Reader for Machine Reading Comprehension](https://arxiv.org/abs/2001.09694)
 
-#### Answer Verification
+### Answer Verification
 
-**Multitask-style verification**
+**1) Multitask-style verification**
 
 We evaluate different loss functions 
 
@@ -60,7 +60,7 @@ We evaluate different loss functions
 
 Train an external verifier (`run_cls.py`)
 
-#### Matching Network
+Matching Network
 
 *Cross Attention* (`run_squad_seq_trm.py`)
 
@@ -76,11 +76,11 @@ Train an external verifier (`run_cls.py`)
 
 [Semantics-Aware Inferential Network for Natural Language Understanding](https://arxiv.org/abs/2004.13338)
 
-#### Answer Dependency
+### Answer Dependency
 
 Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
 
-#### Retrospective Reader
+### Retrospective Reader
 
 1) train a sketchy reader (`sh_albert_cls.sh`)
 
@@ -114,7 +114,7 @@ SQuAD 2.0 Dev Results:
   year={2020}
 }
 ```
-### Related Records (best)
+## Related Records (best)
 
 [CMRC 2017](https://hfl-rc.github.io/cmrc2017/leaderboard/): The **best** single model (2017).
 
@@ -126,7 +126,7 @@ SQuAD 2.0 Dev Results:
 
 [GLUE](https://gluebenchmark.com/): The **3rd best** among all submissions (early 2019).
 
-### Contact
+## Contact
 
 Feel free to email zhangzs [at] sjtu.edu.cn if you have any questions.
 
