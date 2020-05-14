@@ -6,7 +6,7 @@ This repo is our research summary and playground for MRC.  More features are com
 
 ## Summary
 
-Looking for a comprehensive and comparative review on MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
+Looking for a comprehensive and comparative review of MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
 
 In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture. Our empirical analysis is shared in this repo. 
 
@@ -74,7 +74,7 @@ As part of the techniques in our Retro-Reader paper:
 
 ### Answer Dependency
 
-    Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
+   Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
 
 ### Example: Retrospective Reader
 
