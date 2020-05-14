@@ -66,15 +66,15 @@ As part of the techniques in our Retro-Reader paper:
 
     *Matching Attention* (`run_squad_seq_sc.py`)
 
-    <u>Related Work</u>:
+<u>Related Work</u>:
 
-      [Modeling Multi-turn Conversation with Deep Utterance Aggregation](https://www.aclweb.org/anthology/C18-1317/)
+  [Modeling Multi-turn Conversation with Deep Utterance Aggregation](https://www.aclweb.org/anthology/C18-1317/)
 
-      [DCMN+: Dual Co-Matching Network for Multi-choice Reading Comprehension](https://arxiv.org/pdf/1908.11511.pdf)
+  [DCMN+: Dual Co-Matching Network for Multi-choice Reading Comprehension](https://arxiv.org/pdf/1908.11511.pdf)
 
-      [Dual Multi-head Co-attention for Multi-choice Reading Comprehension](https://arxiv.org/abs/2001.09415)
+  [Dual Multi-head Co-attention for Multi-choice Reading Comprehension](https://arxiv.org/abs/2001.09415)
 
-      [Semantics-Aware Inferential Network for Natural Language Understanding](https://arxiv.org/abs/2004.13338)
+  [Semantics-Aware Inferential Network for Natural Language Understanding](https://arxiv.org/abs/2004.13338)
 
 ### Answer Dependency
 
