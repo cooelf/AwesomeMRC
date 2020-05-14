@@ -6,7 +6,7 @@ This repo is our research summary and playground for MRC.  More features are com
 
 ## Summary
 
-Looking for a comprehensive and comparative review on MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (2020).
+Looking for a comprehensive and comparative review on MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
 
 In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture. Our empirical analysis is shared in this repo. 
 
@@ -16,21 +16,21 @@ In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture.
 
 1) Language Units
 
-    [Subword-augmented Embedding for Cloze Reading Comprehension](https://www.aclweb.org/anthology/C18-1153/)
-
-    [Effective Subword Segmentation for Text Comprehension](https://arxiv.org/abs/1811.02364)
+    [Subword-augmented Embedding for Cloze Reading Comprehension (COLING 2018)](https://www.aclweb.org/anthology/C18-1153/)
+    
+    [Effective Subword Segmentation for Text Comprehension (TASLP)](https://arxiv.org/abs/1811.02364)
 
 2) Linguistic Knowledge
 
-    [Semantics-aware BERT for language understanding](https://arxiv.org/abs/1909.02209)
-
-    [SG-Net: Syntax-Guided Machine Reading Comprehension](https://arxiv.org/abs/1908.05147)
-
-    [LIMIT-BERT : Linguistic Informed Multi-Task BERT](https://arxiv.org/pdf/1910.14296.pdf)
+    [Semantics-aware BERT for language understanding (AAAI 2020)](https://arxiv.org/abs/1909.02209)
+    
+    [SG-Net: Syntax-Guided Machine Reading Comprehension (AAAI 2020)](https://arxiv.org/abs/1908.05147)
+    
+    [LIMIT-BERT: Linguistic Informed Multi-Task BERT (preprint)](https://arxiv.org/pdf/1910.14296.pdf)
 
 3) Commonsense Injection
 
-    [Multi-choice Dialogue-Based Reading Comprehension with Knowledge and Key Turns](https://arxiv.org/abs/2004.13988)
+    [Multi-choice Dialogue-Based Reading Comprehension with Knowledge and Key Turns (preprint)](https://arxiv.org/abs/2004.13988)
 
 4) Contextualized language models (CLMs) for MRC:
 
@@ -42,18 +42,18 @@ The implementation is based on [Transformers](https://github.com/huggingface/tra
 
 As part of the techniques in our Retro-Reader paper:
 
-[Retrospective Reader for Machine Reading Comprehension](https://arxiv.org/abs/2001.09694)
+[Retrospective Reader for Machine Reading Comprehension (preprint)](https://arxiv.org/abs/2001.09694)
 
 ### Answer Verification
 
 **1) Multitask-style verification**
 
     We evaluate different loss functions 
-
+    
       *cross-entropy* (`run_squad_av.py`)
-
+    
       *binary cross-entropy* (`run_squad_av_bce.py`)
-
+    
       *mse regression*  (`run_squad_avreg.py`)
 
 **2) External verification**
@@ -63,33 +63,29 @@ As part of the techniques in our Retro-Reader paper:
 ### Matching Network
 
     *Cross Attention* (`run_squad_seq_trm.py`)
-
+    
     *Matching Attention* (`run_squad_seq_sc.py`)
 
 <u>Related Work</u>:
 
-  [Modeling Multi-turn Conversation with Deep Utterance Aggregation](https://www.aclweb.org/anthology/C18-1317/)
+  [Modeling Multi-turn Conversation with Deep Utterance Aggregation (COLING 2018)](https://www.aclweb.org/anthology/C18-1317/)
 
-  [DCMN+: Dual Co-Matching Network for Multi-choice Reading Comprehension](https://arxiv.org/pdf/1908.11511.pdf)
-
-  [Dual Multi-head Co-attention for Multi-choice Reading Comprehension](https://arxiv.org/abs/2001.09415)
-
-  [Semantics-Aware Inferential Network for Natural Language Understanding](https://arxiv.org/abs/2004.13338)
+  [DCMN+: Dual Co-Matching Network for Multi-choice Reading Comprehension (AAAI 2020)](https://arxiv.org/pdf/1908.11511.pdf)
 
 ### Answer Dependency
 
     Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
 
-### Retrospective Reader
+### Example: Retrospective Reader
 
     1) train a sketchy reader (`sh_albert_cls.sh`)
-
+    
     2) train an intensive reader (`sh_albert_av.sh`)
-
+    
     3) rear verification: merge the prediction for final answer (`run_verifier.py`)
-
+    
     SQuAD 2.0 Dev Results:	
-
+    
       ```
       {
       "exact": 87.75372694348522, 
@@ -103,6 +99,9 @@ As part of the techniques in our Retro-Reader paper:
       "NoAns_total": 5945
       }
       ```
+
+### Question Classification
+    [One-shot Learning for Question-Answering in Gaokao History Challenge](https://www.aclweb.org/anthology/C18-1038/)
 
 ### Citation
 
