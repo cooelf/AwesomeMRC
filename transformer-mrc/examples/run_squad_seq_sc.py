@@ -405,7 +405,7 @@ def main():
     ## Other parameters
     parser.add_argument("--padding_side", default="right", type=str,
                         help="right/left, padding_side of passage / question")
-    parser.add_argument("--data_dir", default=None, type=str,
+    parser.add_argument("--data_dir", default="", type=str,
                         help="The input data dir. Should contain the .json files for the task." +
                              "If no data dir or train/predict files are specified, will run with tensorflow_datasets.")
     parser.add_argument("--train_file", default=None, type=str,
