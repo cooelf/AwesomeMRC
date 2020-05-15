@@ -6,7 +6,7 @@ This repo is our research summary and playground for MRC.  More features are com
 
 ## Summary
 
-Looking for a comprehensive and comparative review on MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
+Looking for a comprehensive and comparative review of MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
 
 In this work, MRC model is regarded as a two-stage Encoder-Decoder architecture. Our empirical analysis is shared in this repo. 
 
@@ -48,23 +48,23 @@ As part of the techniques in our Retro-Reader paper:
 
 **1) Multitask-style verification**
 
-    We evaluate different loss functions 
+   We evaluate different loss functions 
     
-      *cross-entropy* (`run_squad_av.py`)
+   *cross-entropy* (`run_squad_av.py`)
+   
+   *binary cross-entropy* (`run_squad_av_bce.py`)
     
-      *binary cross-entropy* (`run_squad_av_bce.py`)
-    
-      *mse regression*  (`run_squad_avreg.py`)
+   *mse regression*  (`run_squad_avreg.py`)
 
 **2) External verification**
 
-    Train an external verifier (`run_cls.py`)
+   Train an external verifier (`run_cls.py`)
 
 ### Matching Network
 
-    *Cross Attention* (`run_squad_seq_trm.py`)
+   *Cross Attention* (`run_squad_seq_trm.py`)
     
-    *Matching Attention* (`run_squad_seq_sc.py`)
+   *Matching Attention* (`run_squad_seq_sc.py`)
 
 <u>Related Work</u>:
 
@@ -74,15 +74,15 @@ As part of the techniques in our Retro-Reader paper:
 
 ### Answer Dependency
 
-    Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
+   Model answer dependency (start + seq -> end) (`run_squad_dep.py`)
 
 ### Example: Retrospective Reader
 
-    1) train a sketchy reader (`sh_albert_cls.sh`)
+   1) train a sketchy reader (`sh_albert_cls.sh`)
     
-    2) train an intensive reader (`sh_albert_av.sh`)
+   2) train an intensive reader (`sh_albert_av.sh`)
     
-    3) rear verification: merge the prediction for final answer (`run_verifier.py`)
+   3) rear verification: merge the prediction for final answer (`run_verifier.py`)
     
     SQuAD 2.0 Dev Results:	
     
@@ -101,7 +101,7 @@ As part of the techniques in our Retro-Reader paper:
       ```
 
 ### Question Classification
-    [One-shot Learning for Question-Answering in Gaokao History Challenge](https://www.aclweb.org/anthology/C18-1038/)
+   [One-shot Learning for Question-Answering in Gaokao History Challenge (COLING 2018)](https://www.aclweb.org/anthology/C18-1038/)
 
 ### Citation
 
