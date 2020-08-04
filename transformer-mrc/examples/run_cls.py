@@ -303,9 +303,11 @@ def evaluate(args, model, tokenizer, prefix=""):
         final_map = {}
         for idx, key in enumerate(key_map):
             key_list = key_map[key]
-            final_map[key] = [str(key_list[0]), str(key_list[1])]
+            key_list[0] = key_list[0] / cnt_map[key]
+            key_list[1] = key_list[1] / cnt_map[key]
+            final_map[key] = key_list[1] - key_list[0]
 
-        with open(os.path.join(args.output_dir, prefix, "cls_score.json"), "w") as writer:
+        with open(os.path.join(args.output_dir, "cls_score.json"), "w") as writer:
             writer.write(json.dumps(final_map, indent=4) + "\n")
 
         output_eval_file = os.path.join(eval_output_dir, prefix, "eval_results.txt")
