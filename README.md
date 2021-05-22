@@ -1,7 +1,7 @@
 # AwesomeMRC
 
 **update**
-*The code for model ensemble (grid search): run_ensemble_grid.py*
+*The code for model ensemble (grid search): [run_ensemble_grid.py](transformer-mrc/run_ensemble_grid.py)*
 
 *working in progress
 
