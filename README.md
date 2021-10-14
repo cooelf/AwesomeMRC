@@ -7,6 +7,12 @@
 
 This repo is our research summary and playground for MRC.  More features are coming.
 
+## Requirements
+The codes are based on [Transformers](https://github.com/huggingface/transformers) v2.3.0. The dependencies are the same.
+You can install the dependencies by `pip install transformers==2.3.0` 
+
+or directly download the requirements file: https://github.com/huggingface/transformers/blob/v2.3.0/requirements.txt and run `pip install -r requirements`.
+
 ## Summary
 
 Looking for a comprehensive and comparative review of MRC? check out our new survey paper: **[Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond](https://arxiv.org/abs/2005.06249)** (preprint, 2020).
