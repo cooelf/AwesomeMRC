@@ -1,11 +1,10 @@
 # AwesomeMRC
 
 **update**
-*The code for model ensemble (grid search): [run_ensemble_grid.py](transformer-mrc/run_ensemble_grid.py)*
 
-*working in progress
+* [model] Our SOTA SQuAD2.0 models are available at [CodaLab]([transformer-mrc/run_ensemble_grid.py](https://worksheets.codalab.org/worksheets/0xac07322a21164c6fa3d740c455571768)) for reproduction.
 
-This repo is our research summary and playground for MRC.  More features are coming.
+* [ensemble] The code for model ensemble (grid search): [run_ensemble_grid.py](transformer-mrc/run_ensemble_grid.py)*
 
 ## Requirements
 The codes are based on [Transformers](https://github.com/huggingface/transformers) v2.3.0. The dependencies are the same.
