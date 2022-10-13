@@ -50,7 +50,7 @@ The implementation is based on [Transformers](https://github.com/huggingface/tra
 
 As part of the techniques in our Retro-Reader paper:
 
-[Retrospective Reader for Machine Reading Comprehension (preprint)](https://arxiv.org/abs/2001.09694)
+[Retrospective Reader for Machine Reading Comprehension (AAAI 2021)](https://arxiv.org/abs/2001.09694)
 
 ### Answer Verification
 
