@@ -114,7 +114,7 @@ As part of the techniques in our Retro-Reader paper:
 ### Citation
 
 ```
-@article{zhang2020retrospective,
+@article{zhang2020survey,
   title={Machine Reading Comprehension: The Role of Contextualized Language Models and Beyond},
   author={Zhang, Zhuosheng and Zhao, Hai and Wang, Rui},
   journal={arXiv preprint arXiv:2005.06249},
