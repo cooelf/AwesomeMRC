@@ -120,12 +120,14 @@ As part of the techniques in our Retro-Reader paper:
   journal={arXiv preprint arXiv:2005.06249},
   year={2020}
 }
-
-@article{zhang2020retrospective,
+@inproceedings{zhang2021retrospective,
   title={Retrospective reader for machine reading comprehension},
   author={Zhang, Zhuosheng and Yang, Junjie and Zhao, Hai},
-  journal={arXiv preprint arXiv:2001.09694},
-  year={2020}
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={35},
+  number={16},
+  pages={14506--14514},
+  year={2021}
 }
 ```
 ## Related Records (best)
